@@ -1,0 +1,125 @@
+$grey: #1f1f1f;
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Centers horizontally
+  margin: 25px auto; // Centers the container
+  width: 100%; // Full width
+  max-width: 900px; // Limit to 900px for larger screens
+}
+
+.slider {
+  position: relative;
+  height: 500px; // Fixed height
+  width: 100%; // Full width of the container
+  overflow: hidden; // Hide overflow
+
+  @media only screen and (max-width: 375px) {
+    height: 400px; // Adjust height for mobile
+    width: 100%; // Full width
+  }
+
+  .image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover; // Maintain aspect ratio
+    background-repeat: no-repeat; // No repeat
+    background-position: center; // Center the image
+    will-change: transform, opacity;
+
+    &:hover {
+      cursor: grab; // Change cursor on hover
+    }
+
+    &:active {
+      cursor: grabbing; // Change cursor on active
+    }
+  }
+}
+
+.buttons {
+  margin-top: 12px;
+
+  button {
+    outline: none; // Remove outline
+    border: none; // No border
+    user-select: none; // Prevent text selection
+    padding: 10px 12px; // Button padding
+    transform: skewY(-5deg) rotate(5deg); // Skew effect
+    background-color: $grey; // Background color
+    font-family: inherit; // Inherit font
+    font-size: inherit; // Inherit font size
+    color: white; // Text color
+    transition: 0.07s ease-out transform; // Transition for hover
+
+    &:first-of-type {
+      margin-right: 15px; // Space between buttons
+    }
+
+    &:hover {
+      cursor: pointer; // Change cursor on hover
+    }
+
+    &:active {
+      transform: scale(0.85) skewY(-5deg) rotate(5deg); // Scale effect on active
+    }
+  }
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center; // Center thumbnails
+
+  .thumbnail-container {
+    position: relative;
+    height: 120px; // Thumbnail height
+    width: 90px; // Thumbnail width
+
+    @media only screen and (max-width: 375px) {
+      height: 70px; // Adjust height for mobile
+      width: 50px; // Adjust width for mobile
+    }
+
+    &:hover {
+      cursor: pointer; // Change cursor on hover
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 5px; // Space between thumbnails
+    }
+
+    img {
+      height: 100%; // Full height
+      width: 100%; // Full width
+      object-fit: cover; // Cover the object
+      object-position: center; // Center the image
+    }
+
+    .active-indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%; // Full height
+      width: 100%; // Full width
+      pointer-events: none; // Disable pointer events
+      transform: scaleX(0); // Scale effect
+      transform-origin: left; // Origin for scale
+      background-color: $grey; // Background color
+      transition: 1s cubic-bezier(0.56, 0.03, 0.12, 1.04) transform; // Transition
+
+      &.active {
+        transform: scaleX(1); // Active scale effect
+      }
+    }
+  }
+}
