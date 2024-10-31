@@ -122,44 +122,20 @@
     object-fit: cover;
 }
 
-.cards{
-    margin-top: 7rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
 
-.cards img{
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-}
 
-.cardItem{
-    position: relative;
-    width: 450px;
-}
-.cardItem img{
-    object-fit: cover;
-}
+@media (max-width: 753px) {
+    .navItems{
+        gap: 2rem;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    
+    .navText{
+        font-size: 0.7rem;       
+    }
 
-.cardInfo{
-    position: absolute;
-    top: 45%;
-    left: 40%;
-}
-
-.cardInfo h2{
-    background-color: white;
-    padding: 6px;
-    opacity: 0.9;
-    margin-bottom: 10px;
-}
-
-.cardInfo button{
-    border: none;
-    padding: 6px;
-    background-color: black;
-    color: white;
+    .logoImg{
+        width: 1.3rem;
+    }
 }
