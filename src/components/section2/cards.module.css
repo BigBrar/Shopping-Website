@@ -1,23 +1,46 @@
-.cards{
+.cards {
     margin-top: 7rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 100px;
 }
 
-.cards img{
+.cardItem {
+    position: relative;
+    width: 450px;
+    overflow: hidden;
+}
+
+.cardItem img {
     width: 100%;
     height: 500px;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.cardItem{
-    position: relative;
-    width: 450px;
+@media (max-width: 753px) {
+    .cards {
+        margin-top: 40px;
+        justify-content: center;
+    }
+
+    .cards img {
+        height: 300px;
+        width: 300px;
+    }
+
+    .cardItem {
+        margin-bottom: 2rem;
+        width: auto;
+        /* Add some vertical spacing to make the center detection more obvious */
+        margin-top: 2rem;
+    }
 }
-.cardItem img{
-    object-fit: cover;
+
+.cardItem:hover img {
+    transform: scale(1.1); /* Zoom level on hover */
 }
 
 .cardInfo{
